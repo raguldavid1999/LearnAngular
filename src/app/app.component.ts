@@ -47,6 +47,7 @@ export class AppComponent implements OnInit {
   dropdownList:any = [];
   selectedItems:any = [];
   dropdownSettings = {};
+  value:number = 3;
   onItemSelect(item: any) {
     console.log(item);
     console.log(this.selectedItems);

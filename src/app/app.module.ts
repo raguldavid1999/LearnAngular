@@ -14,6 +14,7 @@ import { IgxSliderModule } from 'igniteui-angular';
 import { FormsModule } from '@angular/forms';
 import { ShareModule } from 'ngx-sharebuttons';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import { RatingModule } from 'primeng/rating';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
     IgxSliderModule,
     FormsModule,
     ShareModule,
+    RatingModule
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',
