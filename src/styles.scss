@@ -17,4 +17,7 @@
 @import "primeng/resources/primeng.css";
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Courier New', Courier, monospace;}
+.ig-typography p{
+  font-family: 'Hanken Grotesk';
+}

@@ -13,6 +13,16 @@ export class AppComponent implements OnInit {
   title = 'learnAngular';
   constructor(private authService: SocialAuthService) { }
   ngOnInit(): void {
+    let clickElement:any = document.querySelectorAll('.navigation-head')
+    let slider:any = document.querySelector('.slider')
+
+    clickElement.forEach((element:any) => {
+      element.addEventListener("click", (event:any)=>{
+        console.log(event,slider?.style.left,'event');
+        slider.style.left = event.target.offsetLeft + 'px';
+        console.log(event.clientX + 'px');
+      });
+    });
     this.authService.authState.subscribe((res)=>{
       console.log(res,'login data');
     })
