@@ -11,6 +11,7 @@ import { IgxInputDirective, IgxSliderComponent } from 'igniteui-angular';
 })
 export class AppComponent implements OnInit {
   title = 'learnAngular';
+  watchAd:boolean = false;
   constructor(private authService: SocialAuthService) { }
   ngOnInit(): void {
     let clickElement:any = document.querySelectorAll('.navigation-head')
@@ -23,6 +24,25 @@ export class AppComponent implements OnInit {
         console.log(event.clientX + 'px');
       });
     });
+    let video:any = document.getElementById('video-id');
+    // video.currentTime = 5;
+    let adVideo:any = document.getElementById('ad-id');
+    // video?.addEventListener('ended',()=>{
+    //   console.log('ended');
+    //   video.src = '../assets/videos/home_wwBS1691074889.mp4';
+    //   video.currentTime = 5;
+    //   video.play();
+    // })
+    video?.addEventListener('timeupdate',(event:any)=>{
+      console.log(event,'playing');
+      if(event.target.currentTime>10 && !this.watchAd){
+        video?.pause();
+        video.src = '../assets/videos/home_Wz7n1692194497.mp4'
+        video?.play();
+        this.watchAd = true;
+        // adVideo.play();
+      }
+    })
     this.authService.authState.subscribe((res)=>{
       console.log(res,'login data');
     })
@@ -74,6 +94,13 @@ export class AppComponent implements OnInit {
   }
   signInWithGoogle(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+  onEnded(event:any){
+    console.log(event,'ended');
+    let video:any = document.getElementById('video-id');
+    video.src = '../assets/videos/home_wwBS1691074889.mp4';
+    video.currentTime = 10;
+    video.play();
   }
 
   formatLabel(value: number): string {
