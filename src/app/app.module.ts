@@ -11,16 +11,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { HammerModule } from '@angular/platform-browser';
 import { IgxSliderModule } from 'igniteui-angular';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShareModule } from 'ngx-sharebuttons';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { RatingModule } from 'primeng/rating';
+import { NgxStripeModule } from 'ngx-stripe';
+import { environments } from 'src/environments/environments';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    HttpClientModule,
     AngularMultiSelectModule,
     BrowserModule,
     AppRoutingModule,
@@ -32,7 +36,9 @@ import { RatingModule } from 'primeng/rating';
     IgxSliderModule,
     FormsModule,
     ShareModule,
-    RatingModule
+    RatingModule,
+    ReactiveFormsModule,
+    NgxStripeModule.forRoot(environments.stripe.publicKey)
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',
@@ -41,11 +47,11 @@ import { RatingModule } from 'primeng/rating';
       providers: [
         {
           id: GoogleLoginProvider.PROVIDER_ID,
-          provider: new GoogleLoginProvider('943567520134-pinkp5dbuhf0bsu6plkqke04k6f3vdr2.apps.googleusercontent.com')
+          provider: new GoogleLoginProvider(environments.googleApiKey)
         },
         {
           id: FacebookLoginProvider.PROVIDER_ID,
-          provider: new FacebookLoginProvider('707917980899507')
+          provider: new FacebookLoginProvider(environments.faceBookKey)
         }
       ],
       onError: (err) => {
