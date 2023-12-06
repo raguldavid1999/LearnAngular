@@ -13,6 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environments } from 'src/environments/environments';
+import { AppService } from 'src/services/app.service';
 
 @Component({
   selector: 'app-root',
@@ -88,8 +89,9 @@ export class AppComponent implements OnInit {
 
   stripeTest!: FormGroup;
   title = 'learnAngular';
+  modelName: any;
   watchAd: boolean = false;
-  constructor(private authService: SocialAuthService, private fb: FormBuilder, private stripeService: StripeService, private http: HttpClient) { }
+  constructor(private authService: SocialAuthService, private appService: AppService, private fb: FormBuilder, private stripeService: StripeService, private http: HttpClient) { }
   ngOnInit(): void {
     this.stripeTest = this.fb.group({
       name: ['', [Validators.required]]
@@ -207,4 +209,8 @@ export class AppComponent implements OnInit {
   // signOut(): void {
   //   this.authService.signOut();
   // }
+
+  submit() {
+    this.appService.trans.next(this.modelName)
+  }
 }

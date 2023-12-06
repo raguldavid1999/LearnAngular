@@ -18,10 +18,12 @@ import { RatingModule } from 'primeng/rating';
 import { NgxStripeModule } from 'ngx-stripe';
 import { environments } from 'src/environments/environments';
 import { HttpClientModule } from '@angular/common/http';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainComponent
   ],
   imports: [
     HttpClientModule,
