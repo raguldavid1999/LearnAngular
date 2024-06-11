@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 # Angular15
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
-=======
-# LearnAngular
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.9.
->>>>>>> 0ded381f71cef4c19c09a066d2811441c2a28e33
 
 ## Development server
 

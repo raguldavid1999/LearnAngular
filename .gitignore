@@ -10,11 +10,6 @@
 /node_modules
 npm-debug.log
 yarn-error.log
-<<<<<<< HEAD
-=======
-environments
-config.ts
->>>>>>> 0ded381f71cef4c19c09a066d2811441c2a28e33
 
 # IDEs and editors
 .idea/
@@ -45,7 +40,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-<<<<<<< HEAD
-=======
-config
->>>>>>> 0ded381f71cef4c19c09a066d2811441c2a28e33
